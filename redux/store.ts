@@ -11,7 +11,9 @@ const middlewares: any[] = [thunk];
 const store: any = createStore(
     rootReducer,
     initialState,
-    composeWithDevTools(applyMiddleware(...middlewares))
+    process.env.NEXT_PUBLIC_NODE_VERSION === 'development'
+        ? composeWithDevTools(applyMiddleware(...middlewares))
+        : applyMiddleware(...middlewares)
 );
 
 const persistor = persistStore(store);
