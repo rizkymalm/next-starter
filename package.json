@@ -10,7 +10,8 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "lint:staged": "lint-staged",
-    "storybook": "storybook dev -p 6006"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "next": "14.2.5",
@@ -72,12 +73,12 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,json}": [
-        "prettier '**/*.{js,jsx,tsx,ts}' --write --ignore-path .gitignore",
-        "next lint --dir '{src,test}/**/*'",
-        "stop-only --file"
+      "prettier '**/*.{js,jsx,tsx,ts}' --write --ignore-path .gitignore",
+      "next lint --dir '{src,test}/**/*'",
+      "stop-only --file"
     ],
     "*.{json,yaml}": [
-        "prettier --write"
+      "prettier --write"
     ]
   }
 }
