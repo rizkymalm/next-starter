@@ -1,8 +1,31 @@
+'use client';
+
+import ButtonToggle from '@/components/button/ButtonToggle';
+import { useTheme } from 'next-themes';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+    const { setTheme } = useTheme();
+    const [isChecked, setIsChecked] = useState(false);
+
+    useEffect(() => {
+        isChecked ? setTheme('dark') : setTheme('light');
+    }, [isChecked, setTheme]);
+
+    const handleChangeButtonToggle = (e: any) => {
+        e.preventDefault();
+        setIsChecked(!isChecked);
+    };
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
+            <div className="fixed right-0 my-auto h-[100px] w-[100px]">
+                <ButtonToggle
+                    onClick={handleChangeButtonToggle}
+                    isChecked={isChecked}
+                    setIsChecked={setIsChecked}
+                />
+            </div>
             <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
                 <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:dark:bg-zinc-800/30">
                     Get started by editing&nbsp;
