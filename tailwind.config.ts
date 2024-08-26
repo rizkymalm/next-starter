@@ -403,7 +403,12 @@ const config: Config = {
             },
         },
     },
-    plugins: [],
-    darkMode: 'class'
+    plugins: [
+        function ({ addVariant }: any) {
+            addVariant('child', '& > *');
+            addVariant('child-hover', '& > *:hover');
+        },
+    ],
+    darkMode: 'class',
 };
 export default config;

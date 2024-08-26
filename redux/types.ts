@@ -20,6 +20,7 @@ export interface Action {
 
 export interface Reducers {
     auth: AuthState;
+    system: SystemState;
 }
 
 export interface AuthState {
@@ -41,4 +42,8 @@ export interface AuthState {
         type: 'success' | 'failed' | null;
         message: any;
     };
+}
+
+export interface SystemState {
+    themes: string;
 }

@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
 
-// interface Props {
-//     onClick?: () => void;
-// }
-
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     isChecked: boolean;
     setIsChecked: any;
 }
 
 const ButtonToggle = ({ isChecked, setIsChecked, ...props }: Props) => {
-    // const handleCheckboxChange = () => {
-    //     setIsChecked(!isChecked);
-    // };
     return (
         <>
             <label className="themeSwitcherThree relative inline-flex cursor-pointer select-none items-center">

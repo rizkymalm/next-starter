@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 
 import type { Action } from '@/redux/types';
 import { authReducers } from './authReducers';
+import { systemReducer } from './systemReducer';
 
 interface PersistProps {
     key: string;
@@ -17,6 +18,7 @@ const persistConfig: PersistProps = {
 
 const appReducer = combineReducers({
     auth: authReducers,
+    system: systemReducer,
 });
 
 const rootReducer = (state: any, action: Action) => {
