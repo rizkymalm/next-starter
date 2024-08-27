@@ -294,6 +294,8 @@ const config: Config = {
             },
             backgroundImage: {
                 'login-pattern': 'url("/images/bg-login2.svg")',
+                'project-kepo': 'url("/images/projects/kepo.png")',
+                'project-koins': 'url("/images/projects/koins.png")',
             },
             backgroundSize: {
                 auto: 'auto',
