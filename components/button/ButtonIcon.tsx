@@ -10,7 +10,7 @@ interface Props {
 const ButtonIcon = ({ icon, iconSize, onClick }: Props) => {
     return (
         <button
-            className="flex gap-2 rounded-md border-transparent bg-transparent p-2 text-white transition-all hover:bg-blue-900"
+            className="flex gap-2 rounded-md border-transparent bg-transparent p-2 text-black transition-all dark:hover:bg-blue-900 hover:bg-yellow-600/50 dark:text-white"
             type="button"
             onClick={onClick}
         >

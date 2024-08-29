@@ -296,6 +296,10 @@ const config: Config = {
                 'login-pattern': 'url("/images/bg-login2.svg")',
                 'project-kepo': 'url("/images/projects/kepo.png")',
                 'project-koins': 'url("/images/projects/koins.png")',
+                'project-shoko': 'url("/images/projects/shoko.png")',
+                'desktop-koins': 'url("/images/projects/koins-all.png")',
+                'desktop-centrin': 'url("/images/projects/centrin-all.png")',
+                'desktop-surveydesign': 'url("/images/projects/surveydesign-all.png")',
             },
             backgroundSize: {
                 auto: 'auto',

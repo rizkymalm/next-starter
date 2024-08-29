@@ -9,7 +9,7 @@ import ProjectListMobile from '@/components/ui/project/ProjectListMobile';
 import ProjectListDesktop from '@/components/ui/project/ProjectListDesktop';
 
 const ProjectPage = () => {
-    const [showProject, setShowProject] = useState('mobile');
+    const [showProject, setShowProject] = useState('desktop');
     const handleChangeProject = (type: string) => {
         setShowProject(type);
     };
@@ -23,26 +23,26 @@ const ProjectPage = () => {
             </div>
 
             <main className="flex min-h-screen flex-col items-center p-5 lg:p-20">
-                <div className="mb-5 text-title-sm text-yellow-600">
+                <div className="mb-5 text-text-xxl font-semibold text-yellow-600">
                     Latest Project
                 </div>
                 <div className="flex w-full justify-center gap-2 p-2">
-                    <div
-                        className={`${showProject === 'mobile' && 'border-yellow-600" border-b'} p-1 transition-all`}
-                    >
-                        <ButtonIcon
-                            icon="radix-icons:mobile"
-                            iconSize={40}
-                            onClick={() => handleChangeProject('mobile')}
-                        />
-                    </div>
                     <div
                         className={`${showProject === 'desktop' && 'border-yellow-600" border-b'} p-1 transition-all`}
                     >
                         <ButtonIcon
                             icon="radix-icons:desktop"
-                            iconSize={40}
+                            iconSize={34}
                             onClick={() => handleChangeProject('desktop')}
+                        />
+                    </div>
+                    <div
+                        className={`${showProject === 'mobile' && 'border-yellow-600" border-b'} p-1 transition-all`}
+                    >
+                        <ButtonIcon
+                            icon="radix-icons:mobile"
+                            iconSize={34}
+                            onClick={() => handleChangeProject('mobile')}
                         />
                     </div>
                 </div>
