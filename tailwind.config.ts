@@ -300,6 +300,7 @@ const config: Config = {
                 'desktop-koins': 'url("/images/projects/koins-all.png")',
                 'desktop-centrin': 'url("/images/projects/centrin-all.png")',
                 'desktop-surveydesign': 'url("/images/projects/surveydesign-all.png")',
+                'desktop-dashboard': 'url("/images/projects/dashboard-all.png")',
             },
             backgroundSize: {
                 auto: 'auto',
