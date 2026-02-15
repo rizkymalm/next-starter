@@ -1,19 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
 }
 
 /* body {
@@ -27,9 +29,9 @@
 } */
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+	.text-balance {
+		text-wrap: balance;
+	}
 }
 
 
@@ -37,32 +39,129 @@
 	position: relative;
 	text-align: left;
 }
+
 .triangle:before,
 .triangle:after {
 	content: '';
 	position: absolute;
 	background-color: inherit;
 }
+
 .triangle,
 .triangle:before,
 .triangle:after {
-	width:  10em;
+	width: 10em;
 	height: 10em;
 	border-top-right-radius: 30%;
 }
 
 .triangle {
-	transform: rotate(31deg) skewX(-30deg) scale(1,.866);
-}
-.triangle:before {
-	transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
-}
-.triangle:after {
-	transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+	transform: rotate(31deg) skewX(-30deg) scale(1, .866);
 }
 
-.profile-photo{
-  background-image: url('../public/images/profile-photo.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+.triangle:before {
+	transform: rotate(-135deg) skewX(-45deg) scale(1.414, .707) translate(0, -50%);
+}
+
+.triangle:after {
+	transform: rotate(135deg) skewY(-45deg) scale(.707, 1.414) translate(50%);
+}
+
+.profile-photo {
+	background-image: url('../public/images/profile-photo.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
+/* typography */
+@layer components {
+
+	.ty-super-xl {
+		@apply text-title-super font-bold leading-tight;
+	}
+
+	.ty-super {
+		@apply text-title-3xl font-bold leading-tight;
+	}
+
+	.ty-big {
+		@apply text-title-xxl font-bold leading-tight;
+	}
+
+	/* ===== HEADINGS ===== */
+	.ty-h1 {
+		@apply text-title-xl font-bold leading-tight;
+	}
+
+	.ty-h2 {
+		@apply text-title-lg font-semibold leading-tight;
+	}
+
+	.ty-h3 {
+		@apply text-title-md font-semibold leading-snug;
+	}
+
+	.ty-h4 {
+		@apply text-title-sm font-medium leading-snug;
+	}
+
+	.ty-h5 {
+		@apply text-title-xs font-medium leading-snug;
+	}
+
+	/* ===== BODY ===== */
+	.ty-body-lg {
+		@apply text-text-xxl font-semibold leading-relaxed;
+	}
+
+	.ty-body {
+		@apply text-text-lg font-regular leading-normal;
+	}
+
+	.ty-body-sm {
+		@apply text-text-md font-regular leading-normal;
+	}
+
+	/* ===== LABEL / META ===== */
+	.ty-label {
+		@apply text-text-sm font-medium tracking-wide;
+	}
+
+	.ty-caption {
+		@apply text-text-xs font-regular;
+	}
+}
+
+
+.neonText {
+	animation: flicker 1.5s infinite alternate;
+	/* -webkit-text-fill-color: transparent;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: #4ADE80;
+	font-size: 5em; */
+}
+
+@keyframes flicker {
+
+	0%,
+	18%,
+	22%,
+	25%,
+	53%,
+	57%,
+	100% {
+
+		text-shadow:
+			0 0 4px #fff,
+			0 0 11px #fff,
+			0 0 19px #0fa
+
+	}
+
+	20%,
+	24%,
+	55% {
+		text-shadow: none;
+	}
 }

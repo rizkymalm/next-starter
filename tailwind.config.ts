@@ -7,6 +7,13 @@ const config: Config = {
         './app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
     theme: {
+        asideScrollbars: {
+            light: 'light',
+            gray: 'gray',
+        },
+        scrollPadding: {
+            72: '18rem',
+        },
         extend: {
             colors: {
                 current: 'currentColor',
@@ -19,6 +26,108 @@ const config: Config = {
                 bodydark: '#AEB7C0',
                 bodydark1: '#DEE4EE',
                 bodydark2: '#8A99AF',
+                textDarkPrimary: '#F5F5F7',
+                textDarkSecondary: '#A5A5AB',
+                textDarkTertiary: '#6E6E73',
+                // bg: {
+                //     1: 'var(--bg-1)',
+                //     2: 'var(--bg-2)',
+                //     3: 'var(--bg-3)',
+                // },
+                // text: {
+                //     primary: 'var(--text-primary)',
+                //     secondary: 'var(--text-secondary)',
+                //     muted: 'var(--text-muted)',
+                // },
+                // accent: {
+                //     DEFAULT: 'var(--accent)',
+                //     hover: 'var(--accent-hover)',
+                //     active: 'var(--accent-active)',
+                //     subtle: 'var(--accent-subtle)',
+                //     secondary: 'var(--accent-secondary)',
+                // },
+                bg: {
+                    light: {
+                        1: '#FAFAFB', // primary background (app)
+                        2: '#FFFFFF', // secondary background (card)
+                        3: '#F2F2F5', // tertiary / hover / subtle surface
+                    },
+                    dark: {
+                        1: '#0E0E11', // primary background
+                        2: '#16161A', // secondary background
+                        3: '#1E1E24', // tertiary / hover
+                    },
+                },
+                text: {
+                    light: {
+                        primary: '#1C1C1E', // main text (almost black)
+                        secondary: '#3A3A3C', // secondary content
+                        muted: '#8E8E93', // helper / label / placeholder
+                    },
+                    dark: {
+                        primary: '#F5F5F7',
+                        secondary: '#A5A5AB',
+                        muted: '#6E6E73',
+                    },
+                },
+                accent: {
+                    light: {
+                        DEFAULT: '#22C55E', // main
+                        hover: '#4ADE80',
+                        active: '#15803D',
+                        subtle: '#DCFCE7', // background hint
+                        secondary: '#16A34A',
+                    },
+                    dark: {
+                        DEFAULT: '#50C878',
+                        hover: '#6BEA9B',
+                        active: '#267E48',
+                        subtle: '#123222',
+                        secondary: '#97FFBD',
+                    },
+                },
+                // LIGHT MODE BACKGROUND
+                light: {
+                    1: '#FAFAFB', // primary background (app)
+                    2: '#FFFFFF', // secondary background (card)
+                    3: '#F2F2F5', // tertiary / hover / subtle surface
+                },
+                // DARK MODE BACKGROUND
+                dark: {
+                    1: '#0E0E11', // primary background
+                    2: '#16161A', // secondary background
+                    3: '#1E1E24', // tertiary / hover
+                },
+                // BASE BACKGROUND
+                // TEXT COLORS
+                // text: {
+                //     primary: '#F5F5F7',
+                //     secondary: '#A5A5AB',
+                //     muted: '#6E6E73',
+                // },
+                textlight: {
+                    primary: '#1C1C1E', // main text (almost black)
+                    secondary: '#3A3A3C', // secondary content
+                    muted: '#8E8E93', // helper / label / placeholder
+                },
+                // EMERALD ACCENT PALETTE
+                // accent: {
+                //     DEFAULT: '#4ADE80',
+                //     dark: '#267E48',
+                //     hover: '#6BEA9B',
+                //     subtle: '#123222',
+                //     secondary: '#97FFBD',
+                // },
+                // BORDERS
+                border: {
+                    soft: '#2A2A2F',
+                    strong: '#3A3A40',
+                    divider: '#232327',
+                },
+                // STATUS
+                success: '#4ADE80',
+                warning: '#FFD34D',
+                error: '#EF4444',
                 neutral: {
                     50: '#F8F8F8',
                     100: '#E4E4E4',
@@ -82,18 +191,18 @@ const config: Config = {
                 'meta-8': '#F0950C',
                 'meta-9': '#E5E7EB',
                 'meta-10': '#0FADCF',
-                success: {
-                    50: '#F4FFF3',
-                    100: '#E3FFE2',
-                    200: '#BCFCBB',
-                    300: '#99F497',
-                    400: '#60E55D',
-                    500: '#34D130',
-                    600: '#04BB00',
-                    700: '#059F02',
-                    800: '#027600',
-                    900: '#024D00',
-                },
+                // success: {
+                //     50: '#F4FFF3',
+                //     100: '#E3FFE2',
+                //     200: '#BCFCBB',
+                //     300: '#99F497',
+                //     400: '#60E55D',
+                //     500: '#34D130',
+                //     600: '#04BB00',
+                //     700: '#059F02',
+                //     800: '#027600',
+                //     900: '#024D00',
+                // },
                 danger: {
                     50: '#FEF4F3',
                     100: '#FFE8E7',
@@ -106,37 +215,51 @@ const config: Config = {
                     800: '#720600',
                     900: '#260200',
                 },
-                warning: {
-                    50: '#FFFAE5',
-                    100: '#FFF0B7',
-                    200: '#FFE78A',
-                    300: '#FFDE5C',
-                    400: '#FFD52E',
-                    500: '#FFCC00',
-                    600: '#D6AB00',
-                    700: '#AD8B00',
-                    800: '#856A00',
-                    900: '#5C4900',
-                },
+                // warning: {
+                //     50: '#FFFAE5',
+                //     100: '#FFF0B7',
+                //     200: '#FFE78A',
+                //     300: '#FFDE5C',
+                //     400: '#FFD52E',
+                //     500: '#FFCC00',
+                //     600: '#D6AB00',
+                //     700: '#AD8B00',
+                //     800: '#856A00',
+                //     900: '#5C4900',
+                // },
             },
             fontSize: {
-                'title-xxl': ['72px', '90px'],
-                'title-xl': ['60px', '72px'],
-                'title-xl2': ['33px', '45px'],
-                'title-lg': ['48px', '60px'],
-                'title-md': ['36px', '44px'],
-                'title-sm': ['30px', '38px'],
-                'title-xs': ['30px', '38px'],
-                'title-xsm': ['24px', '32px'],
-                'text-xxl': ['24px', '32px'],
-                'text-xl': ['20px', '30px'],
-                'text-lg': ['18px', '28px'],
-                'text-md': ['16px', '24px'],
-                'text-sm': ['14px', '20px'],
-                'text-xs': ['12px', '18px'],
+                'title-super': ['200px', '220px'], // super xl
+                'title-3xl': ['120px', '160px'], // super
+                'title-xxl': ['72px', '88px'], // Hero / landing
+                'title-xl': ['60px', '72px'], // Page hero
+                'title-lg': ['48px', '60px'], // Page title
+                'title-md': ['36px', '44px'], // Section title
+                'title-sm': ['30px', '38px'], // Card title
+                'title-xs': ['26px', '34px'], // Sub card title
+                'title-xsm': ['22px', '30px'], // Small heading
+                'text-xxl': ['20px', '30px'], // Large paragraph
+                'text-xl': ['18px', '28px'], // Intro text
+                'text-lg': ['16px', '26px'], // Default body
+                'text-md': ['14px', '22px'], // Secondary
+                'text-sm': ['13px', '20px'], // Caption
+                'text-xs': ['12px', '18px'], // Helper
+            },
+            fontWeight: {
+                regular: '400',
+                medium: '500',
+                semibold: '600',
+                bold: '700',
+            },
+            lineHeight: {
+                tight: '1.15', // headings besar
+                snug: '1.3', // headings normal
+                normal: '1.5', // body
+                relaxed: '1.65', // paragraph panjang
             },
             fontFamily: {
-                Montserrat: ['Montserrat', 'sans-serif'],
+                sans: ['Inter', 'system-ui', 'sans-serif'],
+                rowdies: ['Rowdies', 'sans-serif'],
             },
             spacing: {
                 4.5: '1.125rem',
@@ -292,22 +415,15 @@ const config: Config = {
                 '4/3': '4 / 3',
                 '21/9': '21 / 9',
             },
-            backgroundImage: {
-                'login-pattern': 'url("/images/bg-login2.svg")',
-                'project-kepo': 'url("/images/projects/kepo.png")',
-                'project-koins': 'url("/images/projects/koins.png")',
-                'project-shoko': 'url("/images/projects/shoko.png")',
-                'desktop-koins': 'url("/images/projects/koins-all.png")',
-                'desktop-centrin': 'url("/images/projects/centrin-all.png")',
-                'desktop-surveydesign': 'url("/images/projects/surveydesign-all.png")',
-                'desktop-dashboard': 'url("/images/projects/dashboard-all.png")',
-            },
             backgroundSize: {
                 auto: 'auto',
                 cover: 'cover',
                 contain: 'contain',
                 '50%': '50%',
                 '100%': '100%',
+            },
+            backgroundImage: {
+                'moon-bg': 'url("/images/moon.png")',
             },
             transitionProperty: { width: 'width', stroke: 'stroke' },
             borderWidth: {
@@ -408,6 +524,14 @@ const config: Config = {
                 line2: 'line-revert 8s infinite linear',
                 line3: 'line 7s infinite linear',
             },
+        },
+
+        boxShadow: {
+            'custom-light': '3px 0 12px rgb(74 222 128 / 15%)',
+            'right-md': '8px 0 6px rgba(0, 0, 0, 0.1)',
+            'right-lg': '10px 0 12px rgba(0, 0, 0, 0.1)',
+            'left-md': '-3px 0 6px rgba(0, 0, 0, 0.1)',
+            'left-lg': '-4px 0 12px rgba(0, 0, 0, 0.1)',
         },
     },
     plugins: [
