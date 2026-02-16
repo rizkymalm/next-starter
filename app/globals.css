@@ -18,6 +18,10 @@
 	}
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 /* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -156,7 +160,6 @@
 			0 0 4px #fff,
 			0 0 11px #fff,
 			0 0 19px #0fa
-
 	}
 
 	20%,
