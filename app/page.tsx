@@ -4,6 +4,7 @@ import { SpotlightParticles } from '@/components/features';
 import Greetings from '@/components/ui/home/Greetings';
 import Project from '@/components/ui/home/Project';
 import Project2 from '@/components/ui/home/Project2';
+import Menu from '@/components/ui/Menu';
 
 export default function Home() {
     return (
@@ -15,6 +16,7 @@ export default function Home() {
             <Project />
             {/* section 3 */}
             <Project2 />
+            <Menu />
         </main>
     );
 }

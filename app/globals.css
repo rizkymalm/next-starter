@@ -221,3 +221,29 @@ html {
 	z-index: 1;
 	pointer-events: none;
 }
+
+.menu-direction {
+	position: absolute;
+	top: 68px;
+	left: 0;
+	width: 10px;
+	height: 10px;
+	background-color: var(--accent1);
+	border-radius: 50%;
+	z-index: 1;
+	box-shadow: 0 0 10px rgba(74, 222, 128, 0.8);
+}
+
+.menu-direction::before {
+	content: '';
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	left: -2px;
+	background-color: var(--accent1);
+	z-index: 2;
+	transform: rotate(45deg);
+}

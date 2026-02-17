@@ -10,8 +10,8 @@ import { Providers } from './provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-    title: 'RM Next App',
-    description: 'Next Starter',
+    title: 'Rizki Malem | Showcase',
+    description: 'Rizki Malem Portfolio | Showcase | Documentation | Contact',
 };
 
 export default function RootLayout({
