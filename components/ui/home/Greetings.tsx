@@ -1,8 +1,8 @@
+import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useRef } from 'react';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useScramble } from '@/utils/useScramble';
 import TypeWriterEffect from '@/components/features/Typewriter';
+import { useScramble } from '@/utils/useScramble';
 
 const Greetings = () => {
     const textR = useScramble({
@@ -36,7 +36,7 @@ const Greetings = () => {
                 <div className="fixed inset-0 m-auto grid h-50 w-125 grid-cols-2">
                     <motion.span
                         style={{ x: xLeft, scale, opacity, rotate }}
-                        className={`ty-super text-right font-rowdies text-accent-dark`}
+                        className="ty-super text-right font-rowdies text-accent-dark"
                     >
                         {textR.text}
                     </motion.span>
@@ -47,7 +47,7 @@ const Greetings = () => {
                             opacity,
                             rotate: rotateRight,
                         }}
-                        className={`ty-super text-left font-rowdies text-accent-dark`}
+                        className="ty-super text-left font-rowdies text-accent-dark"
                     >
                         {textM.text}
                     </motion.span>

@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import ButtonThemeSwitch from '@/components/button/ButtonThemeSwitch';
-import SidebarMenu from '@/components/layout/SidebarMenu';
 
 import ButtonIcon from '@/components/button/ButtonIcon';
-import ProjectListMobile from '@/components/ui/project/ProjectListMobile';
+import ButtonThemeSwitch from '@/components/button/ButtonThemeSwitch';
+import SidebarMenu from '@/components/layout/SidebarMenu';
 import ProjectListDesktop from '@/components/ui/project/ProjectListDesktop';
+import ProjectListMobile from '@/components/ui/project/ProjectListMobile';
 
 const ProjectPage = () => {
     const [showProject, setShowProject] = useState('desktop');
@@ -18,7 +18,7 @@ const ProjectPage = () => {
             <div className="fixed right-0 top-5 z-99 my-auto h-[100px] w-[90px]">
                 <ButtonThemeSwitch />
             </div>
-            <div className="fixed bottom-0 right-0 top-0 z-99 my-auto table w-[100px]">
+            <div className="fixed inset-y-0 right-0 z-99 my-auto table w-[100px]">
                 <SidebarMenu />
             </div>
 
