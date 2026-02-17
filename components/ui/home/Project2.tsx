@@ -1,4 +1,5 @@
 import TypeWriterEffect from '@/components/features/Typewriter';
+import { useScramble } from '@/utils/useScramble';
 import { useTransform, motion } from 'framer-motion';
 import ProjectKoinsDesktop from '@/public/images/projects/k-oins-desktop.jpg';
 import ProjectKoinsMobile from '@/public/images/projects/k-oins-mobile.png';
@@ -6,8 +7,13 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Icon } from '@iconify/react';
 
-const Project = ({ scrollYProgress }: { scrollYProgress: any }) => {
+const Project2 = ({ scrollYProgress }: { scrollYProgress: any }) => {
     const [display, setDisplay] = useState('desktop');
+    const text = useScramble({
+        text: 'RM',
+        speed: 20,
+        scramble: 40,
+    });
     const scale = useTransform(scrollYProgress, [0, 1], [0, 1]);
     const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
     const y = useTransform(scrollYProgress, [0, 0.4], ['-100%', '0%']);
@@ -79,4 +85,4 @@ const Project = ({ scrollYProgress }: { scrollYProgress: any }) => {
     );
 };
 
-export default Project;
+export default Project2;

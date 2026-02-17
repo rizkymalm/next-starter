@@ -25,7 +25,7 @@ const Greetings = ({ scrollYProgress }: { scrollYProgress: any }) => {
     const rotateRight = useTransform(scrollYProgress, [0, 1], [0, 180]);
 
     return (
-        <div className="relative h-screen min-w-full">
+        <div className="relative min-h-screen min-w-full">
             <div className="relative inset-0 z-999 m-auto h-screen w-full items-center justify-center text-center">
                 <div className="fixed inset-0 m-auto grid h-50 w-125 grid-cols-2">
                     <motion.span
