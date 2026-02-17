@@ -39,7 +39,6 @@ const ButtonThemeSwitch = () => {
         <ButtonToggle
             onClick={handleChangeButtonToggle}
             isChecked={isChecked}
-            setIsChecked={setIsChecked}
         />
     );
 };

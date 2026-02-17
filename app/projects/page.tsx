@@ -34,6 +34,7 @@ const ProjectPage = () => {
                             icon="radix-icons:desktop"
                             iconSize={34}
                             onClick={() => handleChangeProject('desktop')}
+                            type="button"
                         />
                     </div>
                     <div
@@ -43,6 +44,7 @@ const ProjectPage = () => {
                             icon="radix-icons:mobile"
                             iconSize={34}
                             onClick={() => handleChangeProject('mobile')}
+                            type="button"
                         />
                     </div>
                 </div>
