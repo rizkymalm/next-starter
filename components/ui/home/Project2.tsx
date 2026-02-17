@@ -6,6 +6,7 @@ import ProjectKoinsMobile from '@/public/images/projects/k-oins-mobile.png';
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Icon } from '@iconify/react';
+import VideoPlayer from '@/components/video/VideoPlayer';
 
 const Project2 = () => {
     const [display, setDisplay] = useState('desktop');
@@ -14,7 +15,11 @@ const Project2 = () => {
         target: ref,
         offset: ['0.5', 'end'],
     });
-    const scale = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.8, 1], [0, 0.5, 1, 1, 1]);
+    const scale = useTransform(
+        scrollYProgress,
+        [0, 0.3, 0.5, 0.8, 1],
+        [0, 0.5, 1, 1, 1]
+    );
     const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
     const y = useTransform(scrollYProgress, [0, 0.4], ['-100%', '0%']);
     return (
@@ -25,21 +30,29 @@ const Project2 = () => {
                     className="fixed inset-0 z-999 m-auto h-100 w-150"
                 >
                     <div
-                        className={`glow-card inset-x-0 m-auto min-h-72.5 bg-dark-3 p-[6px]`}
+                        className={`glow-card inset-x-0 m-auto h-72.5 bg-dark-3 p-[6px]`}
                     >
                         <div
-                            className={`relative z-9 flex h-full w-full transition-transform duration-300 ${display === 'desktop' ? 'translate-x-0' : '-translate-x-[101%]'}`}
+                            className={`relative z-9 flex h-full w-[1200px] gap-6 transition-transform duration-300 ${display === 'desktop' ? 'translate-x-0' : '-translate-x-[51%]'}`}
                         >
-                            <Image
-                                src={ProjectKoinsDesktop}
-                                alt="K-oins Rizki Malem"
-                                className="rounded-lg"
-                            />
-                            <Image
-                                src={ProjectKoinsMobile}
-                                alt="K-oins Rizki Malem"
-                                className="rounded-lg"
-                            />
+                            <div className="h-full w-full rounded-lg">
+                                <VideoPlayer
+                                    video="/videos/3d-web-desktop.mp4"
+                                    size={{
+                                        width: '100%',
+                                        height: '100%',
+                                    }}
+                                />
+                            </div>
+                            <div className="h-full w-full rounded-lg bg-dark-1">
+                                <VideoPlayer
+                                    video="/videos/3d-web-mobile.mp4"
+                                    size={{
+                                        width: 'auto',
+                                        height: '100%',
+                                    }}
+                                />
+                            </div>
                         </div>
                     </div>
                     <div

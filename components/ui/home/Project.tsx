@@ -13,9 +13,17 @@ const Project = () => {
         target: ref,
         offset: ['0.20', '0.5'],
     });
-    const scale = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.8, 1], [0, 0.5, 1 , 1, 2]);
+    const scale = useTransform(
+        scrollYProgress,
+        [0, 0.3, 0.5, 0.8, 1],
+        [0, 0.5, 1, 1, 2]
+    );
     const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
-    const y = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.8, 1], ['-100%', '-50%', '-10%', '0', '0']);
+    const y = useTransform(
+        scrollYProgress,
+        [0, 0.3, 0.5, 0.8, 1],
+        ['-100%', '-50%', '-10%', '0', '0']
+    );
     return (
         <div className="relative min-h-[200vh] w-full max-w-full">
             <div className="relative z-999 m-auto h-screen w-full items-center justify-center text-center">
