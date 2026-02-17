@@ -1,11 +1,8 @@
-import TypeWriterEffect from '@/components/features/Typewriter';
-import { useScramble } from '@/utils/useScramble';
-import { useTransform, motion, useScroll } from 'framer-motion';
-import ProjectKoinsDesktop from '@/public/images/projects/k-oins-desktop.jpg';
-import ProjectKoinsMobile from '@/public/images/projects/k-oins-mobile.png';
-import React, { useRef, useState } from 'react';
-import Image from 'next/image';
 import { Icon } from '@iconify/react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+
+import TypeWriterEffect from '@/components/features/Typewriter';
 import VideoPlayer from '@/components/video/VideoPlayer';
 
 const Project2 = () => {
@@ -29,13 +26,11 @@ const Project2 = () => {
                     style={{ scale, opacity, y }}
                     className="fixed inset-0 z-999 m-auto h-100 w-150"
                 >
-                    <div
-                        className={`glow-card inset-x-0 m-auto h-72.5 bg-dark-3 p-[6px]`}
-                    >
+                    <div className="glow-card inset-x-0 m-auto h-72.5 bg-dark-3 p-[6px]">
                         <div
                             className={`relative z-9 flex h-full w-[1200px] gap-6 transition-transform duration-300 ${display === 'desktop' ? 'translate-x-0' : '-translate-x-[51%]'}`}
                         >
-                            <div className="h-full w-full rounded-lg">
+                            <div className="size-full rounded-lg">
                                 <VideoPlayer
                                     video="/videos/3d-web-desktop.mp4"
                                     size={{
@@ -44,7 +39,7 @@ const Project2 = () => {
                                     }}
                                 />
                             </div>
-                            <div className="h-full w-full rounded-lg bg-dark-1">
+                            <div className="size-full rounded-lg bg-dark-1">
                                 <VideoPlayer
                                     video="/videos/3d-web-mobile.mp4"
                                     size={{
@@ -56,14 +51,15 @@ const Project2 = () => {
                         </div>
                     </div>
                     <div
-                        className={`absolute inset-y-0 z-99 m-auto h-10 w-10 text-accent-dark transition-all duration-300 ${display === 'mobile' ? '-left-10' : 'left-0 opacity-0'}`}
+                        className={`absolute inset-y-0 z-99 m-auto size-10 text-accent-dark transition-all duration-300 ${display === 'mobile' ? '-left-10' : 'left-0 opacity-0'}`}
                     >
                         <button
                             type="button"
                             onClick={() => setDisplay('desktop')}
+                            aria-label="button switch desktop"
                         >
                             <Icon
-                                icon={'radix-icons:desktop'}
+                                icon="radix-icons:desktop"
                                 className="text-accent-dark"
                                 width={34}
                                 height={34}
@@ -71,14 +67,15 @@ const Project2 = () => {
                         </button>
                     </div>
                     <div
-                        className={`absolute inset-y-0 z-99 m-auto h-10 w-10 text-accent-dark transition-all duration-300 ${display === 'desktop' ? '-right-10' : 'right-0 opacity-0'}`}
+                        className={`absolute inset-y-0 z-99 m-auto size-10 text-accent-dark transition-all duration-300 ${display === 'desktop' ? '-right-10' : 'right-0 opacity-0'}`}
                     >
                         <button
                             type="button"
                             onClick={() => setDisplay('mobile')}
+                            aria-label="button switch mobile"
                         >
                             <Icon
-                                icon={'radix-icons:mobile'}
+                                icon="radix-icons:mobile"
                                 className="text-accent-dark"
                                 width={34}
                                 height={34}

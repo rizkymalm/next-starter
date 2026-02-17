@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
-
 import ReactPlayer from 'react-player';
+
 import ButtonIcon from '../button/ButtonIcon';
 
 interface Props {
@@ -17,11 +17,10 @@ const VideoPlayer = ({ video, size }: Props) => {
 
     const handlePlayPause = () => {
         setPlaying(!playing);
-        console.log(playing);
     };
     return (
-        <div className="relative z-99 h-full w-full">
-            <div className="absolute inset-0 z-99 m-auto bg-dark-1 bg-opacity-50 opacity-0 hover:opacity-100 flex items-center justify-center align-middle">
+        <div className="relative z-99 size-full">
+            <div className="absolute inset-0 z-99 m-auto flex items-center justify-center bg-dark-1/50 align-middle opacity-0 hover:opacity-100">
                 <ButtonIcon
                     icon={!playing ? 'mdi:play' : 'mdi:pause'}
                     type="button"

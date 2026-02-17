@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "@iconify/react": "^5.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
     "axios": "^1.7.4",
     "framer-motion": "^11.3.30",
     "next": "14.2.5",

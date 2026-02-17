@@ -1,8 +1,9 @@
 'use client';
 
-import { Reducers } from '@/redux/types';
 import { ThemeProvider } from 'next-themes';
 import { useSelector } from 'react-redux';
+
+import type { Reducers } from '@/redux/types';
 
 export function Providers({ children }: { children: React.ReactNode }) {
     const systemState = useSelector((state: Reducers) => state.system);

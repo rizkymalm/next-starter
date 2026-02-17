@@ -35,8 +35,8 @@ const SidebarMenu = () => {
                         )}
                         <div className="content-center">
                             <div
-                                className={`h-[10px] w-[10px] rounded-md border border-yellow-600 hover:bg-yellow-600 ${pathname === data.link && 'bg-yellow-600'}`}
-                            ></div>
+                                className={`size-[10px] rounded-md border border-yellow-600 hover:bg-yellow-600 ${pathname === data.link && 'bg-yellow-600'}`}
+                            />
                         </div>
                     </Link>
                 </li>
