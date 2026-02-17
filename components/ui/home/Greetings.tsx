@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
-import { motion, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useScramble } from '@/utils/useScramble';
 import TypeWriterEffect from '@/components/features/Typewriter';
 
-const Greetings = ({ scrollYProgress }: { scrollYProgress: any }) => {
+const Greetings = () => {
     const textR = useScramble({
         text: 'R',
         speed: 20,
@@ -16,16 +16,22 @@ const Greetings = ({ scrollYProgress }: { scrollYProgress: any }) => {
         scramble: 40,
     });
 
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ['0%', '30%'],
+    });
+
     // const y = useTransform(scrollYProgress, [0, 0.4], ['0%', '-20%']);
-    const xRight = useTransform(scrollYProgress, [0, 0.4], ['0%', '150%']);
-    const xLeft = useTransform(scrollYProgress, [0, 0.4], ['0%', '-150%']);
+    const xRight = useTransform(scrollYProgress, [0, 0.4], ['0%', '100%']);
+    const xLeft = useTransform(scrollYProgress, [0, 0.4], ['0%', '-100%']);
     const scale = useTransform(scrollYProgress, [0, 0.4], [1, 1.7]);
     const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
     const rotate = useTransform(scrollYProgress, [0, 1], [0, -180]);
     const rotateRight = useTransform(scrollYProgress, [0, 1], [0, 180]);
 
     return (
-        <div className="relative min-h-screen min-w-full">
+        <div className="relative min-h-[200vh] min-w-full">
             <div className="relative inset-0 z-999 m-auto h-screen w-full items-center justify-center text-center">
                 <div className="fixed inset-0 m-auto grid h-50 w-125 grid-cols-2">
                     <motion.span

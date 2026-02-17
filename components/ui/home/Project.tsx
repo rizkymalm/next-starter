@@ -1,18 +1,23 @@
 import TypeWriterEffect from '@/components/features/Typewriter';
-import { useTransform, motion } from 'framer-motion';
+import { useTransform, motion, useScroll } from 'framer-motion';
 import ProjectKoinsDesktop from '@/public/images/projects/k-oins-desktop.jpg';
 import ProjectKoinsMobile from '@/public/images/projects/k-oins-mobile.png';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import { Icon } from '@iconify/react';
 
-const Project = ({ scrollYProgress }: { scrollYProgress: any }) => {
+const Project = () => {
     const [display, setDisplay] = useState('desktop');
-    const scale = useTransform(scrollYProgress, [0, 1], [0, 1]);
-    const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-    const y = useTransform(scrollYProgress, [0, 0.4], ['-100%', '0%']);
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ['0.20', '0.5'],
+    });
+    const scale = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.8, 1], [0, 0.5, 1 , 1, 2]);
+    const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
+    const y = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.8, 1], ['-100%', '-50%', '-10%', '0', '0']);
     return (
-        <div className="relative min-h-screen w-full max-w-full">
+        <div className="relative min-h-[200vh] w-full max-w-full">
             <div className="relative z-999 m-auto h-screen w-full items-center justify-center text-center">
                 <motion.div
                     style={{ scale, opacity, y }}
