@@ -3,6 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import { DialogStackProvider } from '@/components/dialogs/DialogStackContext';
 import { ReduxProvider } from '@/redux/provider';
 
 import { Providers } from './provider';
@@ -23,7 +24,10 @@ export default function RootLayout({
         <html lang="en">
             <body className={inter.className}>
                 <ReduxProvider>
-                    <Providers>{children}</Providers>
+                    <Providers>
+                        <DialogStackProvider>{children}</DialogStackProvider>
+                        <div id="portal-root" />
+                    </Providers>
                 </ReduxProvider>
             </body>
         </html>

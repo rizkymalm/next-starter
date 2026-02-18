@@ -3,11 +3,14 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import React, { useRef, useState } from 'react';
 
-import TypeWriterEffect from '@/components/features/Typewriter';
+import DialogContent from '@/components/dialogs/DialogContent';
+import DialogSlideUp from '@/components/dialogs/DialogSlideUp';
+import DialogTitle from '@/components/dialogs/DialogTitle';
 import ProjectKoinsDesktop from '@/public/images/projects/k-oins-desktop.jpg';
 import ProjectKoinsMobile from '@/public/images/projects/k-oins-mobile.png';
 
 const ProjectKoins = () => {
+    const [openDialog, setOpenDialog] = useState(false);
     const [display, setDisplay] = useState('desktop');
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -30,6 +33,49 @@ const ProjectKoins = () => {
             style={{ scale, opacity, y }}
             className="fixed inset-0 z-999 m-auto h-100 w-150"
         >
+            <DialogSlideUp
+                open={openDialog}
+                onClose={() => setOpenDialog(false)}
+                animation="slide-up"
+                width="full"
+            >
+                <DialogTitle>K-OINS — Online Survey Platform</DialogTitle>
+                <DialogContent>
+                    <div className="ty-body custom-scrollbar max-h-72.5 w-full overflow-y-auto">
+                        <b>K-OINS</b> is a digital survey platform that connects
+                        businesses with real user insights. Users participate in
+                        surveys and earn rewards, while companies receive
+                        accurate, actionable data to support smarter
+                        decision-making.
+                        <p>The platform is designed to ensure:</p>
+                        <ul className="list-inside list-disc">
+                            <li>
+                                High user engagement through a point-based
+                                reward system
+                            </li>
+                            <li>Reliable data from verified participants</li>
+                            <li>
+                                Fast and intuitive survey creation and
+                                distribution
+                            </li>
+                        </ul>
+                        <h5 className="ty-h5 font-bold text-accent-dark">
+                            Technology Stack
+                        </h5>
+                        <p>
+                            K-OINS is built with a modern, scalable, and
+                            performance-oriented architecture:
+                        </p>
+                        <b className="ty-body-lg font-bold">FRONTEND</b>
+                        <p>
+                            Built using <b>Flutter</b>, allowing K-OINS to run
+                            on both Android and iOS from a single codebase. This
+                            ensures a consistent UI, smooth animations, and fast
+                            development cycles across platforms.
+                        </p>
+                    </div>
+                </DialogContent>
+            </DialogSlideUp>
             <div className="glow-card inset-x-0 m-auto min-h-72.5 bg-dark-3 p-[6px]">
                 <div
                     className={`relative z-9 flex size-full transition-transform duration-300 ${display === 'desktop' ? 'translate-x-0' : '-translate-x-[101%]'}`}
@@ -78,12 +124,20 @@ const ProjectKoins = () => {
                     />
                 </button>
             </div>
-            <div className="ty-body-lg font-bold text-accent-dark">
-                <TypeWriterEffect
-                    text="This is an online survey platform. The name is K-OINS"
-                    speed={50}
-                    start
-                />
+            <div className="ty-body flex text-accent-dark">
+                <button
+                    type="button"
+                    onClick={() => setOpenDialog(true)}
+                    className="m-auto flex p-4 align-middle"
+                >
+                    Detail
+                    <Icon
+                        icon="iconoir:fast-arrow-up"
+                        width={18}
+                        height={18}
+                        className="animate-button"
+                    />
+                </button>
             </div>
         </motion.div>
     );

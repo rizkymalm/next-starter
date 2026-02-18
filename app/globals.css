@@ -247,3 +247,53 @@ html {
 	z-index: 2;
 	transform: rotate(45deg);
 }
+
+.dialog-content b,
+.dialog-content strong {
+	color: var(--accent1);
+}
+
+
+@keyframes buttonMove {
+	0% {
+		transform: translateY(20%);
+	}
+
+	100% {
+		transform: translateY(10%);
+	}
+}
+
+.animate-button {
+	animation: buttonMove .5s infinite alternate;
+}
+
+@layer components {
+	.custom-scrollbar::-webkit-scrollbar {
+		width: 2px;
+		/* custom width */
+	}
+
+	.custom-scrollbar::-webkit-scrollbar-track {
+		background: #0E0E11;
+		/* custom track color */
+		border-radius: 2px;
+	}
+
+	.custom-scrollbar::-webkit-scrollbar-thumb {
+		background: #16161A;
+		/* custom thumb color */
+		border-radius: 2px;
+	}
+
+	.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+		background: #1E1E24;
+		/* custom thumb color on hover */
+	}
+
+	/* For Firefox */
+	.custom-scrollbar {
+		scrollbar-width: thin;
+		scrollbar-color: #16161A #0E0E11;
+	}
+}
