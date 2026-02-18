@@ -4,6 +4,7 @@ import Greetings from '@/app/layouts/Greetings';
 import { SpotlightParticles } from '@/components/features';
 import Menu from '@/components/ui/Menu';
 
+import Contact from './layouts/Contact';
 import Project from './layouts/Project';
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
             {/* //section 1 */}
             <Greetings />
             <Project />
+            <Contact />
             <Menu />
         </main>
     );

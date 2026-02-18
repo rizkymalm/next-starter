@@ -9,8 +9,8 @@ const Menu = () => {
     });
     const left = useTransform(
         scrollYProgress,
-        [0, 0.3, 1],
-        ['0%', '10%', '60%']
+        [0, 0.8, 1],
+        ['0%', '60%', '100%']
     );
     return (
         <div className="fixed inset-x-0 bottom-0 z-999 m-auto h-20 w-full p-15 md:w-1/2">

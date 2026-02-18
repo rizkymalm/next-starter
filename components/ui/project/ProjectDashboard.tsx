@@ -13,7 +13,7 @@ const ProjectDashboard = () => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ['0.75', 'end'],
+        offset: ['0.6', '0.8'],
     });
     const scale = useTransform(
         scrollYProgress,
@@ -24,7 +24,7 @@ const ProjectDashboard = () => {
     const y = useTransform(
         scrollYProgress,
         [0, 0.3, 0.4, 0.6, 0.8, 1],
-        ['-100%', '-50%', '0', '0', '50%', '100%']
+        ['-100%', '-50%', '0%', '0%', '50%', '100%']
     );
     const handleChangeButtonToggle = (e: any) => {
         e.preventDefault();

@@ -19,7 +19,7 @@ const Greetings = () => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ['0%', '30%'],
+        offset: ['0%', '20%'],
     });
 
     // const y = useTransform(scrollYProgress, [0, 0.4], ['0%', '-20%']);

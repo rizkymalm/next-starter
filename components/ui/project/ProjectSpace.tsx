@@ -13,18 +13,18 @@ const ProjectSpace = () => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ['0.5', '0.8'],
+        offset: ['0.4', '0.6'],
     });
     const scale = useTransform(
         scrollYProgress,
-        [0, 0.3, 0.4, 0.6, 0.8, 1],
-        [0, 0.5, 1, 1, 1.5, 2]
+        [0, 0.2, 0.5, 0.8, 1],
+        [0, 0.8, 1, 1.8, 2]
     );
     const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
     const y = useTransform(
         scrollYProgress,
-        [0, 0.3, 0.4, 0.6, 0.8, 1],
-        ['-100%', '-50%', '0', '0', '50%', '100%']
+        [0, 0.2, 0.5, 0.8, 1],
+        ['-100%', '-10%', '0%', '80%', '100%']
     );
     return (
         <motion.div

@@ -297,3 +297,22 @@ html {
 		scrollbar-color: #16161A #0E0E11;
 	}
 }
+
+/* floating object animation */
+@keyframes float {
+	0% {
+		transform: translateY(0px) rotate(calc(var(--rot) * -1deg));
+	}
+
+	50% {
+		transform: translateY(calc(var(--float) * -1px)) rotate(calc(var(--rot) * 1deg));
+	}
+
+	100% {
+		transform: translateY(0px) rotate(calc(var(--rot) * -1deg));
+	}
+}
+
+.float {
+	animation: float var(--speed) ease-in-out infinite;
+}
