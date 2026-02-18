@@ -1,10 +1,10 @@
 'use client';
 
+import Greetings from '@/app/layouts/Greetings';
 import { SpotlightParticles } from '@/components/features';
-import Greetings from '@/components/ui/home/Greetings';
-import Project from '@/components/ui/home/Project';
-import Project2 from '@/components/ui/home/Project2';
 import Menu from '@/components/ui/Menu';
+
+import Project from './layouts/Project';
 
 export default function Home() {
     return (
@@ -12,10 +12,7 @@ export default function Home() {
             <SpotlightParticles />
             {/* //section 1 */}
             <Greetings />
-            {/* section 2 */}
             <Project />
-            {/* section 3 */}
-            <Project2 />
             <Menu />
         </main>
     );

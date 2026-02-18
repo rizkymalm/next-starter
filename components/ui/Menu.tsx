@@ -13,7 +13,7 @@ const Menu = () => {
         ['0%', '10%', '60%']
     );
     return (
-        <div className="fixed inset-x-0 bottom-0 m-auto h-40 w-full p-15 md:w-1/2">
+        <div className="fixed inset-x-0 bottom-0 z-999 m-auto h-20 w-full p-15 md:w-1/2">
             <div className="ty-body relative z-9 flex w-full justify-between font-semibold text-accent-dark-active [&>div]:cursor-pointer [&>div]:transition-all [&>div]:duration-300">
                 <div className="hover:text-accent-dark">About Me</div>
                 <div className="hover:text-accent-dark">Project</div>
