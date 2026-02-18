@@ -316,3 +316,113 @@ html {
 .float {
 	animation: float var(--speed) ease-in-out infinite;
 }
+
+.launch-glow {
+	position: fixed;
+	inset: 0;
+	background: radial-gradient(circle at bottom, rgba(0, 255, 200, 0.35), transparent 60%);
+	animation: glowPulse 0.6s infinite alternate;
+	pointer-events: none;
+	z-index: 9999;
+}
+
+@keyframes glowPulse {
+	from {
+		opacity: 0.3;
+	}
+
+	to {
+		opacity: 0.8;
+	}
+}
+
+.launch-flash {
+	position: fixed;
+	inset: 0;
+	background: white;
+	animation: flash 0.15s ease-out forwards;
+	z-index: 99999;
+	pointer-events: none;
+}
+
+@keyframes flash {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+/* rocket engine start */
+@keyframes cameraShake {
+	0% {
+		transform: translate(0, 0);
+	}
+
+	20% {
+		transform: translate(-3px, 2px);
+	}
+
+	40% {
+		transform: translate(2px, -3px);
+	}
+
+	60% {
+		transform: translate(-2px, 3px);
+	}
+
+	80% {
+		transform: translate(3px, -2px);
+	}
+
+	100% {
+		transform: translate(0, 0);
+	}
+}
+
+.camera-shake {
+	animation: cameraShake 0.12s infinite;
+}
+
+@keyframes countDown {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(.25);
+		opacity: 0;
+	}
+}
+
+.animate-countDown {
+	animation: countDown 2s linear infinite;
+}
+
+/* rocket launch */
+@keyframes rocketLaunch {
+	0% {
+		transform: translateY(0) scale(1);
+		opacity: 1;
+	}
+
+	/* 20% {
+		transform: translateY(-40px) scale(1.02);
+	}
+
+	40% {
+		transform: translateY(-120px) scale(1.05);
+	} */
+
+	100% {
+		transform: translateY(-120vh) scale(0.4);
+		opacity: 0;
+	}
+}
+
+.rocket-launch {
+	animation: rocketLaunch 3s cubic-bezier(.15, .9, .2, 1) forwards;
+}
