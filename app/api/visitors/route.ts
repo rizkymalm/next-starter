@@ -8,7 +8,6 @@ import Visitor from '@/lib/models/VisitorModels';
 
 export async function POST(request: NextRequest) {
     try {
-        // const { ip, device } = await request.json();
         const { country } = geolocation(request);
         await connectMongoDB();
         await Visitor.create({

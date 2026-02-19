@@ -1,22 +1,31 @@
 import mongoose from 'mongoose';
-import { NextResponse } from 'next/server';
 
-const MONGODB_URI: string = process.env.NEXT_PUBLIC_MONGODB_URI || '';
+const MONGODB_URI = process.env.MONGODB_URI as string;
 
-const connectMongoDB = async () => {
-    try {
-        await mongoose.connect(MONGODB_URI, {
-            dbName: 'portfolio',
-        });
-    } catch (error) {
-        NextResponse.json(
-            {
-                error,
-                message: 'Failed to connect DB',
-            },
-            { status: 503 }
-        );
+if (!MONGODB_URI) {
+    throw new Error('Please define MONGODB_URI in environment variables');
+}
+
+let cached = (global as any).mongoose;
+
+if (!cached) {
+    cached = (global as any).mongoose = { conn: null, promise: null };
+}
+
+async function connectMongoDB() {
+    if (cached.conn) {
+        return cached.conn;
     }
-};
+
+    if (!cached.promise) {
+        cached.promise = mongoose.connect(MONGODB_URI, {
+            dbName: 'portfolio',
+            bufferCommands: false,
+        });
+    }
+
+    cached.conn = await cached.promise;
+    return cached.conn;
+}
 
 export default connectMongoDB;
