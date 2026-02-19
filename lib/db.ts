@@ -3,29 +3,41 @@ import mongoose from 'mongoose';
 const MONGODB_URI = process.env.MONGODB_URI as string;
 
 if (!MONGODB_URI) {
-    throw new Error('Please define MONGODB_URI in environment variables');
+    throw new Error('Please define MONGODB_URI');
 }
 
-let cached = (global as any).mongoose;
+type MongooseCache = {
+    conn: typeof mongoose | null;
+    promise: Promise<typeof mongoose> | null;
+};
 
-if (!cached) {
-    cached = (global as any).mongoose = { conn: null, promise: null };
+const globalWithMongoose = globalThis as typeof globalThis & {
+    mongooseCache?: MongooseCache;
+};
+
+if (!globalWithMongoose.mongooseCache) {
+    globalWithMongoose.mongooseCache = {
+        conn: null,
+        promise: null,
+    };
 }
 
 async function connectMongoDB() {
-    if (cached.conn) {
-        return cached.conn;
+    const cache = globalWithMongoose.mongooseCache!;
+
+    if (cache.conn) {
+        return cache.conn;
     }
 
-    if (!cached.promise) {
-        cached.promise = mongoose.connect(MONGODB_URI, {
+    if (!cache.promise) {
+        cache.promise = mongoose.connect(MONGODB_URI, {
             dbName: 'portfolio',
             bufferCommands: false,
         });
     }
 
-    cached.conn = await cached.promise;
-    return cached.conn;
+    cache.conn = await cache.promise;
+    return cache.conn;
 }
 
 export default connectMongoDB;
