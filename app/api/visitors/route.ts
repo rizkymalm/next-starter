@@ -1,14 +1,11 @@
 import mongoose from 'mongoose';
+import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 import connectMongoDB from '@/lib/db';
 import Visitor from '@/lib/models/VisitorModels';
 
-export async function POST(request: {
-    json: () =>
-        | PromiseLike<{ device: any; ip: string }>
-        | { device: any; ip: string };
-}) {
+export async function POST(request: NextRequest) {
     try {
         const { ip, device } = await request.json();
         await connectMongoDB();
