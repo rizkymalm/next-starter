@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { NextResponse } from 'next/server';
 
-const MONGODB_URI: string = process.env.MONGODB_URI || '';
+const MONGODB_URI: string = process.env.NEXT_PUBLIC_MONGODB_URI || '';
 
 const connectMongoDB = async () => {
     try {
