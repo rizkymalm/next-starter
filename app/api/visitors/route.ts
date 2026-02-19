@@ -1,3 +1,4 @@
+import { geolocation } from '@vercel/functions';
 import mongoose from 'mongoose';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
@@ -7,12 +8,12 @@ import Visitor from '@/lib/models/VisitorModels';
 
 export async function POST(request: NextRequest) {
     try {
-        const { ip, device } = await request.json();
+        // const { ip, device } = await request.json();
+        const { country } = geolocation(request);
         await connectMongoDB();
         await Visitor.create({
             _id: new mongoose.Types.ObjectId(),
-            ip,
-            device,
+            country: country || 'not detected',
         });
         return NextResponse.json(
             { message: 'Visitor Created' },

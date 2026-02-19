@@ -1,10 +1,16 @@
 import mongoose, { Schema } from 'mongoose';
 
-const visitorSchema = new Schema({
-    _id: mongoose.Types.ObjectId,
-    device: String,
-    ip: String,
-});
+const visitorSchema = new Schema(
+    {
+        _id: mongoose.Types.ObjectId,
+        device: String,
+        ip: String,
+        country: String,
+    },
+    {
+        timestamps: true,
+    }
+);
 
 const Visitor =
     mongoose.models.Visitor || mongoose.model('Visitor', visitorSchema);
