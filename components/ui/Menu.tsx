@@ -17,7 +17,7 @@ const Menu = () => {
             <div className="ty-body relative z-9 flex w-full justify-between font-semibold text-accent-dark-active [&>div]:cursor-pointer [&>div]:transition-all [&>div]:duration-300">
                 <div className="hover:text-accent-dark">About Me</div>
                 <div className="hover:text-accent-dark">
-                    Project{process.env.API_BASE_URL}
+                    Project{process.env.NEXT_PUBLIC_API_BASE_URL}
                 </div>
                 <div className="hover:text-accent-dark">Contact</div>
             </div>
