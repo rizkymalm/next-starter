@@ -1,5 +1,4 @@
 import { apiFetch } from '@/config/api';
-import { Dispatch } from '../types';
 
 interface Props {
     data?: any;

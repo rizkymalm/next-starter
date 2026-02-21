@@ -1,20 +1,39 @@
-import { NextRequest, NextResponse } from 'next/server';
+// middleware.ts
+
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+const allowedOrigins = [
+    'http://localhost:3001',
+    'http://localhost:3002',
+    'https://rizkymalm.space',
+    'https://www.rizkymalm.space',
+    'https://rizkymalm.site',
+    'https://www.rizkymalm.site',
+];
 
 export function middleware(request: NextRequest) {
-    const country = request.geo?.country || 'US'; // Default to 'US' or some other value
+    const origin = request.headers.get('origin');
 
-    // Example: Redirect users from a specific country
-    if (country === 'BLOCKED_COUNTRY_CODE') {
-        return NextResponse.redirect(new URL('/blocked', request.url));
+    const response = NextResponse.next();
+
+    if (origin && allowedOrigins.includes(origin)) {
+        response.headers.set('Access-Control-Allow-Origin', origin);
     }
 
-    // You can also add the country to the request headers for use in pages/components
-    const response = NextResponse.next();
-    response.headers.set('x-user-country', country);
+    response.headers.set(
+        'Access-Control-Allow-Methods',
+        'GET, POST, PUT, DELETE, OPTIONS'
+    );
+
+    response.headers.set(
+        'Access-Control-Allow-Headers',
+        'Content-Type, Authorization, x-api-key'
+    );
+
     return response;
 }
 
-// Optionally, configure which paths the middleware applies to
 export const config = {
-    matcher: '/:path*', // Apply to all paths
+    matcher: '/api/:path*',
 };
