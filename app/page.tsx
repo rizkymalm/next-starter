@@ -16,6 +16,10 @@ export default function Home() {
         async function postDataVisitors() {
             if (!createVisitor) {
                 await postVisitors({
+                    data: {
+                        url: 'https://wrizkymalm.com',
+                        page: 'home',
+                    },
                     callback: () => {
                         setCreateVisitor(true);
                     },

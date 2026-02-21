@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI as string;
+const MONGODB_DB = process.env.MONGODB_DATABASE as string;
 
 if (!MONGODB_URI) {
     throw new Error('Please define MONGODB_URI');
@@ -31,7 +32,7 @@ async function connectMongoDB() {
 
     if (!cache.promise) {
         cache.promise = mongoose.connect(MONGODB_URI, {
-            dbName: 'staging',
+            dbName: MONGODB_DB,
             bufferCommands: false,
         });
     }

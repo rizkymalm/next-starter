@@ -9,10 +9,13 @@ import Visitor from '@/lib/models/VisitorModels';
 export async function POST(request: NextRequest) {
     try {
         const { country } = geolocation(request);
+        const { page, url } = await request.json();
         await connectMongoDB();
         await Visitor.create({
             _id: new mongoose.Types.ObjectId(),
             country: country || 'not detected',
+            url,
+            page,
         });
         return NextResponse.json(
             { message: 'Visitor Created' },

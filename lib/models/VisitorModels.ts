@@ -6,6 +6,8 @@ const visitorSchema = new Schema(
         device: String,
         ip: String,
         country: String,
+        url: String,
+        page: String,
     },
     {
         timestamps: true,

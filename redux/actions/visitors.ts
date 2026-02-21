@@ -6,11 +6,12 @@ interface Props {
     callback?: any;
 }
 
-export const postVisitors = async ({ callback }: Props) => {
+export const postVisitors = async ({ data, callback }: Props) => {
     try {
         await apiFetch({
             endpoint: '/visitors',
             method: 'POST',
+            data
         });
         callback();
     } catch (error: any) {
