@@ -31,7 +31,7 @@ async function connectMongoDB() {
 
     if (!cache.promise) {
         cache.promise = mongoose.connect(MONGODB_URI, {
-            dbName: 'portfolio',
+            dbName: 'staging',
             bufferCommands: false,
         });
     }
