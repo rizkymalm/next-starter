@@ -10,6 +10,7 @@ const allowedOrigins = [
     'https://www.rizkymalm.space',
     'https://rizkymalm.site',
     'https://www.rizkymalm.site',
+    'https://next-gmbh-test.vercel.app/',
 ];
 
 export function middleware(request: NextRequest) {
