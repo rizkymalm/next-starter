@@ -5,7 +5,7 @@ import type { NextRequest } from 'next/server';
 
 const allowedOrigins = [
     'http://localhost:3001',
-    'http://localhost:3002',
+    'http://localhost:5173',
     'https://rizkymalm.space',
     'https://www.rizkymalm.space',
     'https://rizkymalm.site',
@@ -38,3 +38,7 @@ export function middleware(request: NextRequest) {
 export const config = {
     matcher: '/api/:path*',
 };
+
+// export const config = {
+//     matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+// };
