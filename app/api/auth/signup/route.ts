@@ -4,12 +4,14 @@ import { NextResponse } from 'next/server';
 
 import connectMongoDB from '@/lib/db';
 import User from '@/lib/models/userModels';
+import Role from '@/lib/models/roleModels';
 
 export async function POST(request: NextRequest) {
     try {
         await connectMongoDB();
         const { username, email, password, role } = await request.json();
         const user = await User.findOne({ email });
+        const roles = await Role.findOne({ _id: role });
         if (user) {
             return NextResponse.json(
                 {
@@ -17,6 +19,16 @@ export async function POST(request: NextRequest) {
                     message: 'User already exist',
                 },
                 { status: 409 }
+            );
+        }
+        // check role
+        if (!roles) {
+            return NextResponse.json(
+                {
+                    statusCode: 1404,
+                    message: 'Role note found',
+                },
+                { status: 404 }
             );
         }
         const salt = await bcryptjs.genSalt(10);
