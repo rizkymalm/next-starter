@@ -7,13 +7,26 @@ const activitySchema = new Schema(
             required: false,
         },
         action: {
-            type: ['LOGIN', 'LOGOUT', 'SIGN_UP'],
-            required: false,
+            type: String,
+            enum: ['LOGIN', 'LOGOUT', 'SIGN_UP'],
+            required: [true, 'Action is required'],
         },
         ip: {
             type: String,
-            required: false
-        }
+            required: false,
+        },
+        userAgent: {
+            type: String,
+            required: false,
+        },
+        country: {
+            type: String,
+            required: false,
+        },
+        description: {
+            type: String,
+            required: [true, 'Description is required'],
+        },
     },
     {
         timestamps: true,

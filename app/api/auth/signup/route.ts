@@ -2,21 +2,34 @@ import bcryptjs from 'bcryptjs';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
+import { Messages } from '@/app/constants/messagesEnum';
 import connectMongoDB from '@/lib/db';
+import Role from '@/lib/models/roleModels';
 import User from '@/lib/models/userModels';
 
 export async function POST(request: NextRequest) {
     try {
         await connectMongoDB();
-        const { username, email, password } = await request.json();
+        const { username, email, password, role } = await request.json();
         const user = await User.findOne({ email });
+        const roles = await Role.findOne({ _id: role });
         if (user) {
             return NextResponse.json(
                 {
                     statusCode: 1409,
-                    message: 'User already exist',
+                    message: Messages.SIGNUP_USER_EXIST,
                 },
                 { status: 409 }
+            );
+        }
+        // check role
+        if (!roles) {
+            return NextResponse.json(
+                {
+                    statusCode: 1404,
+                    message: Messages.SIGNUP_ROLE_NOT_FOUND,
+                },
+                { status: 404 }
             );
         }
         const salt = await bcryptjs.genSalt(10);
@@ -25,10 +38,11 @@ export async function POST(request: NextRequest) {
             username,
             email,
             password: hashedPassword,
+            role,
         });
         const savedUser = await newUser.save();
         return NextResponse.json({
-            message: 'User created successfully',
+            message: Messages.SIGNUP_POST_SUCCESS,
             savedUser,
         });
     } catch (error: any) {

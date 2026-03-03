@@ -1,7 +1,11 @@
 import bcryptjs from 'bcryptjs';
 import { NextResponse } from 'next/server';
 
+import { ActivityAction, ActivityMessages } from '@/app/constants/activityEnum';
+import { Messages } from '@/app/constants/messagesEnum';
+import { apiFetch } from '@/config/api';
 import connectMongoDB from '@/lib/db';
+import getIPAddress from '@/lib/get-ip-address';
 import { signAccessToken, signRefreshToken } from '@/lib/jwt';
 import User from '@/lib/models/userModels';
 
@@ -10,11 +14,13 @@ export async function POST(request: Request) {
         await connectMongoDB();
         const { email, password } = await request.json();
         const user = await User.findOne({ email });
+        const date = new Date();
+        const ip = await getIPAddress();
         if (!user) {
             return NextResponse.json(
                 {
                     statusCode: 1404,
-                    message: 'User not found!',
+                    message: Messages.USER_NOT_FOUND,
                 },
                 { status: 404 }
             );
@@ -24,9 +30,27 @@ export async function POST(request: Request) {
             return NextResponse.json(
                 {
                     statusCode: 1403,
-                    message: 'Password not match!',
+                    message: Messages.PASSWORD_NOT_MATCH,
                 },
                 { status: 403 }
+            );
+        }
+        const activity = await apiFetch({
+            method: 'POST',
+            endpoint: '/activity',
+            data: {
+                user: user._id,
+                action: ActivityAction.LOGIN,
+                description: `[${date}] [User: ${user._id}] - ${ActivityMessages.LOGIN} IP:${ip}`,
+            },
+        });
+        if (!activity) {
+            return NextResponse.json(
+                {
+                    statusCode: 1400,
+                    message: Messages.ACTIVITY_POST_FAILED,
+                },
+                { status: 400 }
             );
         }
         const payload = {
@@ -42,7 +66,7 @@ export async function POST(request: Request) {
                 accessToken,
                 refreshToken,
             },
-            message: 'Login Successful',
+            message: Messages.LOGIN_SUCCESS,
         });
 
         response.cookies.set('token', accessToken, {
@@ -54,11 +78,11 @@ export async function POST(request: Request) {
         });
 
         return response;
-    } catch (error) {
+    } catch (error: any) {
         return NextResponse.json(
             {
                 statusCode: 1500,
-                message: error,
+                message: error.message,
             },
             { status: 500 }
         );

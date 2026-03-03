@@ -13,6 +13,9 @@ const allowedOrigins = [
 
 export function middleware(request: NextRequest) {
     const origin = request.headers.get('origin');
+    const requestHeaders = new Headers(request.headers);
+    const ip = request.ip || '127.0.0.1';
+    requestHeaders.set('x-forwarded-for', ip);
 
     // Handle preflight
     if (request.method === 'OPTIONS') {
@@ -35,7 +38,11 @@ export function middleware(request: NextRequest) {
         return response;
     }
 
-    const response = NextResponse.next();
+    const response = NextResponse.next({
+        request: {
+            headers: requestHeaders,
+        },
+    });
 
     if (origin && allowedOrigins.includes(origin)) {
         response.headers.set('Access-Control-Allow-Origin', origin);

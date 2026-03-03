@@ -8,3 +8,12 @@ export async function loginUser(data: any) {
     });
     return response;
 }
+
+export async function createActivity(data: any) {
+    const response = await apiFetch({
+        endpoint: '/activity',
+        method: 'POST',
+        data,
+    });
+    return response;
+}
