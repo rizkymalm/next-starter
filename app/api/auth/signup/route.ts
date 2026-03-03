@@ -3,8 +3,8 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 import connectMongoDB from '@/lib/db';
-import User from '@/lib/models/userModels';
 import Role from '@/lib/models/roleModels';
+import User from '@/lib/models/userModels';
 
 export async function POST(request: NextRequest) {
     try {
