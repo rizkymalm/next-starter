@@ -19,7 +19,7 @@ const Greetings = () => {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ['0%', '20%'],
+        offset: ['0%', '100%'],
     });
 
     // const y = useTransform(scrollYProgress, [0, 0.4], ['0%', '-20%']);
@@ -31,7 +31,7 @@ const Greetings = () => {
     const rotateRight = useTransform(scrollYProgress, [0, 1], [0, 180]);
 
     return (
-        <div className="relative min-h-[200vh] min-w-full">
+        <div className="relative min-h-[200vh] min-w-full" ref={ref}>
             <div className="relative inset-0 z-999 m-auto h-screen w-full items-center justify-center text-center">
                 <div className="fixed inset-0 m-auto grid h-50 w-125 grid-cols-2">
                     <motion.span
