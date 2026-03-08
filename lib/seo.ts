@@ -1,6 +1,6 @@
 export const siteConfig = {
     name: 'Rizki Malem',
-    title: 'Rizky Malem | Full Stack Developer | Portfolio',
+    title: 'Rizki Malem | Full Stack Developer | Portfolio',
     description:
         'Rizki Malem is a Full Stack Developer with 7+ years of experience building web applications using JavaScript, Next.js, React, Flutter, AWS and GCP.',
     url: 'https://rizkymalm.com',
