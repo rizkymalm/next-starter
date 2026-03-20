@@ -4,8 +4,8 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 import connectMongoDB from '@/lib/db';
-import Visitor from '@/lib/models/VisitorModels';
 import getIPAddress from '@/lib/get-ip-address';
+import Visitor from '@/lib/models/VisitorModels';
 
 export async function POST(request: NextRequest) {
     try {
@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
             country: country || 'not detected',
             url,
             page,
-            ip
+            ip,
         });
         return NextResponse.json(
             { message: 'Visitor Created' },
