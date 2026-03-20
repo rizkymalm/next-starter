@@ -5,17 +5,20 @@ import { NextResponse } from 'next/server';
 
 import connectMongoDB from '@/lib/db';
 import Visitor from '@/lib/models/VisitorModels';
+import getIPAddress from '@/lib/get-ip-address';
 
 export async function POST(request: NextRequest) {
     try {
         const { country } = geolocation(request);
         const { page, url } = await request.json();
         await connectMongoDB();
+        const ip = await getIPAddress();
         await Visitor.create({
             _id: new mongoose.Types.ObjectId(),
             country: country || 'not detected',
             url,
             page,
+            ip
         });
         return NextResponse.json(
             { message: 'Visitor Created' },
