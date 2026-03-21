@@ -61,7 +61,7 @@ const Contact = () => {
 
     return (
         <div
-            className={`relative z-999 h-[200vh] w-full max-w-full overflow-hidden ${engineOn ? 'camera-shake' : ''}`}
+            className={`relative z-999 h-[600vh] w-full max-w-full overflow-hidden ${engineOn ? 'camera-shake' : ''}`}
             ref={ref}
         >
             <div className="absolute inset-x-0 bottom-0 z-99 m-auto h-45 w-full items-center justify-center bg-moon-bg bg-cover bg-top bg-no-repeat px-4 lg:w-203" />

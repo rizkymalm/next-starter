@@ -23,19 +23,17 @@ const Greetings = () => {
     });
 
     // const y = useTransform(scrollYProgress, [0, 0.4], ['0%', '-20%']);
-    const xRight = useTransform(scrollYProgress, [0, 0.4], ['0%', '100%']);
-    const xLeft = useTransform(scrollYProgress, [0, 0.4], ['0%', '-100%']);
-    const scale = useTransform(scrollYProgress, [0, 0.4], [1, 1.7]);
+    const xRight = useTransform(scrollYProgress, [0, 1], ['0%', '200%']);
+    const xLeft = useTransform(scrollYProgress, [0, 1], ['0%', '-200%']);
+    const scale = useTransform(scrollYProgress, [0, 1], [1, 1.7]);
     const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-    const rotate = useTransform(scrollYProgress, [0, 1], [0, -180]);
-    const rotateRight = useTransform(scrollYProgress, [0, 1], [0, 180]);
 
     return (
-        <div className="relative min-h-[200vh] min-w-full" ref={ref}>
+        <div className="relative min-h-[600vh] min-w-full" ref={ref}>
             <div className="relative inset-0 z-999 m-auto h-screen w-full items-center justify-center text-center">
                 <div className="fixed inset-0 m-auto grid h-50 w-125 grid-cols-2">
                     <motion.span
-                        style={{ x: xLeft, scale, opacity, rotate }}
+                        style={{ x: xLeft, scale, opacity }}
                         className="ty-super text-right font-rowdies text-accent-dark"
                     >
                         {textR.text}
@@ -45,7 +43,6 @@ const Greetings = () => {
                             x: xRight,
                             scale,
                             opacity,
-                            rotate: rotateRight,
                         }}
                         className="ty-super text-left font-rowdies text-accent-dark"
                     >

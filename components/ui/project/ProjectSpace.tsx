@@ -18,17 +18,21 @@ const ProjectSpace = () => {
     const scale = useTransform(
         scrollYProgress,
         [0, 0.2, 0.5, 0.8, 1],
-        [0, 0.8, 1, 1.8, 2]
+        [0, 1, 1, 1, 0]
     );
-    const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
+    const opacity = useTransform(
+        scrollYProgress,
+        [0, 0.2, 0.4, 0.6, 0.8, 1],
+        [0, 1, 1, 1, 1, 0]
+    );
     const y = useTransform(
         scrollYProgress,
         [0, 0.2, 0.5, 0.8, 1],
-        ['-100%', '-10%', '0%', '80%', '100%']
+        ['50%', '0%', '0%', '0%', '-80%']
     );
     return (
         <div
-            className="relative z-999 m-auto h-[200vh] w-full items-center justify-center"
+            className="relative z-999 m-auto h-[600vh] w-full items-center justify-center"
             ref={ref}
         >
             <motion.div
@@ -127,19 +131,13 @@ const ProjectSpace = () => {
                         <div className="size-full rounded-lg">
                             <VideoPlayer
                                 video="/videos/3d-web-desktop.mp4"
-                                size={{
-                                    width: '100%',
-                                    height: '100%',
-                                }}
+                                size={{ width: '100%', height: '100%' }}
                             />
                         </div>
                         <div className="size-full rounded-lg bg-dark-1">
                             <VideoPlayer
                                 video="/videos/3d-web-mobile.mp4"
-                                size={{
-                                    width: 'auto',
-                                    height: '100%',
-                                }}
+                                size={{ width: 'auto', height: '100%' }}
                             />
                         </div>
                     </div>

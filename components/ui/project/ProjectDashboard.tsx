@@ -17,14 +17,18 @@ const ProjectDashboard = () => {
     });
     const scale = useTransform(
         scrollYProgress,
-        [0, 0.3, 0.4, 0.6, 0.8, 1],
-        [0, 0.5, 1, 1, 1.5, 2]
+        [0, 0.2, 0.5, 0.8, 1],
+        [0, 1, 1, 1, 0]
     );
-    const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
+    const opacity = useTransform(
+        scrollYProgress,
+        [0, 0.2, 0.4, 0.6, 0.8, 1],
+        [0, 1, 1, 1, 1, 0]
+    );
     const y = useTransform(
         scrollYProgress,
-        [0, 0.3, 0.4, 0.6, 0.8, 1],
-        ['-100%', '-50%', '0%', '0%', '50%', '100%']
+        [0, 0.15, 0.3, 0.5, 0.8, 1],
+        ['0%', '50%', '0%', '0%', '0%', '-80%']
     );
     const handleChangeButtonToggle = (e: any) => {
         e.preventDefault();
@@ -36,7 +40,7 @@ const ProjectDashboard = () => {
     };
     return (
         <div
-            className="relative z-999 m-auto h-[200vh] w-full items-center justify-center"
+            className="relative z-999 m-auto h-[600vh] w-full items-center justify-center"
             ref={ref}
         >
             <motion.div

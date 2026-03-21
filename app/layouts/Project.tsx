@@ -8,7 +8,7 @@ import {
 
 const Project = () => {
     return (
-        <div className="relative h-[600vh] w-full max-w-full">
+        <div className="relative h-[1800vh] w-full max-w-full">
             <ProjectKoins />
             <ProjectSpace />
             <ProjectDashboard />
