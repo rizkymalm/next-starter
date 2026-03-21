@@ -93,7 +93,7 @@ const Contact = () => {
                 </div>
             </div>
             <motion.div
-                className={`fixed inset-0 z-99 m-auto flex h-20 w-4/5 gap-10 transition-all duration-1000 lg:w-1/2 ${explore ? 'opacity-0' : 'opacity-100'}`}
+                className={`fixed inset-0 z-99 m-auto flex h-20 w-full flex-wrap gap-2 transition-all duration-1000 lg:w-1/2 lg:gap-10 ${explore ? 'hidden' : 'block'}`}
                 style={{
                     opacity,
                     scale: useTransform(
