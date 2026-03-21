@@ -56,7 +56,7 @@ export default function Home() {
             <Greetings />
             <Project />
             <Contact />
-            <div className="fixed inset-x-0 bottom-0 z-999 m-auto h-20 w-full p-15 md:w-1/2">
+            <div className="fixed inset-x-0 bottom-0 z-999 m-auto h-20 w-full px-10 py-15 md:w-1/2 lg:px-15">
                 <div className="ty-body relative z-9 flex w-full justify-between font-semibold text-accent-dark-active [&>button]:transition-all [&>button]:duration-300">
                     <button
                         className="hover:text-accent-dark"
@@ -81,7 +81,7 @@ export default function Home() {
                     </button>
                 </div>
                 <motion.div
-                    className="menu-direction translate-x-15"
+                    className="menu-direction translate-x-8 lg:translate-x-15"
                     style={{ left }}
                 />
             </div>

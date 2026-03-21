@@ -92,8 +92,16 @@ const Contact = () => {
                     />
                 </div>
             </div>
-            <div
+            <motion.div
                 className={`fixed inset-0 z-99 m-auto flex h-20 w-4/5 gap-10 transition-all duration-1000 lg:w-1/2 ${explore ? 'opacity-0' : 'opacity-100'}`}
+                style={{
+                    opacity,
+                    scale: useTransform(
+                        scrollYProgress,
+                        [0, 0.1, 1],
+                        [0, 1, 1]
+                    ),
+                }}
             >
                 <motion.div
                     className="m-auto h-10 w-20 translate-y-full"
@@ -217,7 +225,7 @@ const Contact = () => {
                         />
                     </Floating>
                 </motion.div>
-            </div>
+            </motion.div>
         </div>
     );
 };

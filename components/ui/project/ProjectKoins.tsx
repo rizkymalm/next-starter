@@ -1,13 +1,10 @@
 import { Icon } from '@iconify/react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import Image from 'next/image';
 import React, { useRef, useState } from 'react';
 
 import DialogContent from '@/components/dialogs/DialogContent';
 import DialogSlideUp from '@/components/dialogs/DialogSlideUp';
 import DialogTitle from '@/components/dialogs/DialogTitle';
-import ProjectKoinsDesktop from '@/public/images/projects/k-oins-desktop.jpg';
-import ProjectKoinsMobile from '@/public/images/projects/k-oins-mobile.png';
 
 const ProjectKoins = () => {
     const [openDialog, setOpenDialog] = useState(false);
@@ -39,7 +36,7 @@ const ProjectKoins = () => {
         >
             <motion.div
                 style={{ scale, opacity, y }}
-                className="fixed inset-0 z-999 m-auto h-100 w-150"
+                className="fixed inset-0 z-999 m-auto flex h-60 w-4/5 flex-col md:w-1/2 lg:h-[70vh]"
             >
                 <DialogSlideUp
                     open={openDialog}
@@ -87,21 +84,38 @@ const ProjectKoins = () => {
                         </div>
                     </DialogContent>
                 </DialogSlideUp>
-                <div className="glow-card inset-x-0 m-auto min-h-72.5 bg-dark-3 p-[6px]">
+                <div className="glow-card inset-x-0 m-auto size-full">
                     <div
-                        className={`relative z-9 flex size-full transition-transform duration-300 ${display === 'desktop' ? 'translate-x-0' : '-translate-x-[101%]'}`}
+                        className={`relative z-9 flex h-full w-[200%] gap-4 p-2 transition-transform duration-300 ${display === 'desktop' ? 'translate-x-0' : '-translate-x-1/2'}`}
                     >
-                        <Image
-                            src={ProjectKoinsDesktop}
-                            alt="K-oins Rizki Malem"
-                            className="rounded-lg"
+                        <div
+                            className="size-full rounded-md bg-cover bg-center bg-no-repeat"
+                            style={{
+                                backgroundImage: `url('/images/projects/k-oins-desktop.jpg')`,
+                            }}
                         />
-                        <Image
-                            src={ProjectKoinsMobile}
-                            alt="K-oins Rizki Malem"
-                            className="rounded-lg"
+                        <div
+                            className="size-full rounded-md bg-contain bg-center bg-no-repeat"
+                            style={{
+                                backgroundImage: `url('/images/projects/k-oins-mobile.jpg')`,
+                            }}
                         />
                     </div>
+                </div>
+                <div className="ty-body flex text-accent-dark">
+                    <button
+                        type="button"
+                        onClick={() => setOpenDialog(true)}
+                        className="m-auto flex p-4 align-middle"
+                    >
+                        Detail
+                        <Icon
+                            icon="iconoir:fast-arrow-up"
+                            width={18}
+                            height={18}
+                            className="animate-button"
+                        />
+                    </button>
                 </div>
                 <div
                     className={`absolute inset-y-0 z-99 m-auto size-10 text-accent-dark transition-all duration-300 ${display === 'mobile' ? '-left-10' : 'left-0 opacity-0'}`}
@@ -132,21 +146,6 @@ const ProjectKoins = () => {
                             className="text-accent-dark"
                             width={34}
                             height={34}
-                        />
-                    </button>
-                </div>
-                <div className="ty-body flex text-accent-dark">
-                    <button
-                        type="button"
-                        onClick={() => setOpenDialog(true)}
-                        className="m-auto flex p-4 align-middle"
-                    >
-                        Detail
-                        <Icon
-                            icon="iconoir:fast-arrow-up"
-                            width={18}
-                            height={18}
-                            className="animate-button"
                         />
                     </button>
                 </div>

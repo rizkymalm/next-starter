@@ -37,7 +37,7 @@ const ProjectSpace = () => {
         >
             <motion.div
                 style={{ scale, opacity, y }}
-                className="fixed inset-0 z-999 m-auto h-100 w-150"
+                className="fixed inset-0 z-999 m-auto flex h-64 w-4/5 flex-col md:w-1/2 lg:h-[70vh]"
             >
                 <DialogSlideUp
                     open={openDialog}
@@ -124,17 +124,17 @@ const ProjectSpace = () => {
                         </div>
                     </DialogContent>
                 </DialogSlideUp>
-                <div className="glow-card inset-x-0 m-auto h-72.5 bg-dark-3 p-[6px]">
+                <div className="glow-card inset-x-0 m-auto size-full p-2">
                     <div
-                        className={`relative z-9 flex h-full w-[1200px] gap-6 transition-transform duration-300 ${display === 'desktop' ? 'translate-x-0' : '-translate-x-[51%]'}`}
+                        className={`relative z-9 flex h-full w-[200%] transition-transform duration-300 ${display === 'desktop' ? 'translate-x-0' : '-translate-x-[51%]'}`}
                     >
-                        <div className="size-full rounded-lg">
+                        <div className="size-full rounded-md bg-dark-1">
                             <VideoPlayer
                                 video="/videos/3d-web-desktop.mp4"
                                 size={{ width: '100%', height: '100%' }}
                             />
                         </div>
-                        <div className="size-full rounded-lg bg-dark-1">
+                        <div className="ml-6 size-full rounded-md bg-dark-1">
                             <VideoPlayer
                                 video="/videos/3d-web-mobile.mp4"
                                 size={{ width: 'auto', height: '100%' }}

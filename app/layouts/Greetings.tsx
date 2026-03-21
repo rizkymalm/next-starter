@@ -31,7 +31,7 @@ const Greetings = () => {
     return (
         <div className="relative min-h-[600vh] min-w-full" ref={ref}>
             <div className="relative inset-0 z-999 m-auto h-screen w-full items-center justify-center text-center">
-                <div className="fixed inset-0 m-auto grid h-50 w-125 grid-cols-2">
+                <div className="fixed inset-0 m-auto grid h-50 w-[90%] grid-cols-2 md:w-1/2">
                     <motion.span
                         style={{ x: xLeft, scale, opacity }}
                         className="ty-super text-right font-rowdies text-accent-dark"
@@ -50,7 +50,7 @@ const Greetings = () => {
                     </motion.span>
                     <motion.div
                         style={{ opacity, scale, x: xLeft }}
-                        className="ty-body-lg px-2 text-right text-accent-dark-hover opacity-55"
+                        className="lg:ty-body-lg ty-body-sm px-2 text-right text-accent-dark-hover opacity-55"
                     >
                         <TypeWriterEffect
                             speed={50}
@@ -60,7 +60,7 @@ const Greetings = () => {
                     </motion.div>
                     <motion.div
                         style={{ opacity, scale, x: xRight }}
-                        className="ty-body-lg px-2 text-left text-accent-dark-hover opacity-55"
+                        className="lg:ty-body-lg ty-body-sm px-2 text-left text-accent-dark-hover opacity-55"
                     >
                         <TypeWriterEffect
                             speed={50}

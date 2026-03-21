@@ -45,7 +45,7 @@ const ProjectDashboard = () => {
         >
             <motion.div
                 style={{ scale, opacity, y }}
-                className="fixed inset-0 z-999 m-auto h-100 w-150"
+                className="fixed inset-0 z-999 m-auto flex h-52 w-4/5 flex-col md:w-1/2 lg:h-[70vh]"
             >
                 <DialogSlideUp
                     open={openDialog}
@@ -122,10 +122,16 @@ const ProjectDashboard = () => {
                         </div>
                     </DialogContent>
                 </DialogSlideUp>
-                <div className="glow-card inset-x-0 m-auto h-72.5 bg-dark-3 p-[6px]">
+                <div className="glow-card inset-x-0 m-auto size-full p-2">
                     <div className="relative z-9 size-full">
                         <div
-                            className={`size-full rounded-lg bg-contain bg-center transition-all duration-300 ${display === 'dark' ? 'bg-[url("/images/projects/dashboard-dark.png")]' : 'bg-[url("/images/projects/dashboard-light.png")]'}`}
+                            className="size-full rounded-lg bg-cover bg-left bg-no-repeat transition-all duration-300"
+                            style={{
+                                backgroundImage:
+                                    display === 'dark'
+                                        ? 'url("/images/projects/dashboard-dark.png")'
+                                        : 'url("/images/projects/dashboard-light.png")',
+                            }}
                         />
                         <div className="absolute right-11 top-0 z-99 m-auto size-10 text-accent-dark transition-all duration-300">
                             <ButtonToggle
